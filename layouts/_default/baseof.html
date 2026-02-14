@@ -6,13 +6,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        {{- with .Site.Params.newrelic -}}
-            {{- if .enabled -}}
-                {{- partial "newrelic.html" $ -}}
-            {{- end -}}
-        {{- end -}}
         <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
 
+        {{- if hugo.IsProduction }}
+        {{- partial "newrelic.html" . -}}
+        {{- partial "outbound-links.html" . -}}
+        {{- end }}
         {{- partial "head/meta.html" . -}}
         {{- partial "head/link.html" . -}}
         {{- partial "head/seo.html" . -}}
