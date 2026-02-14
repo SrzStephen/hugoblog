@@ -1,4 +1,4 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://phteven.space'
 title = 'My New Hugo Site'
 theme = 'loveit'
 ignoreFiles = ['\.venv', '\.pytest_cache', 'node_modules', '__pycache__', 'uv\.lock']
