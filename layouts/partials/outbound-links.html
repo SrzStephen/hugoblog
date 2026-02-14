@@ -1,0 +1,16 @@
+<script>
+document.addEventListener("click", function (e) {
+  var link = e.target.closest("a");
+  if (!link) return;
+
+  var isExternal = link.hostname && link.hostname !== window.location.hostname;
+
+  if (isExternal && typeof newrelic !== "undefined") {
+    newrelic.addPageAction("outbound_click", {
+      url: link.href,
+      text: link.innerText || "",
+      hostname: link.hostname
+    });
+  }
+});
+</script>

@@ -1,11 +1,11 @@
 ---
-title: "Loading quantized adaptor models for CPU inference"
+title: "Loading quantized adapter models for CPU inference"
 date: 2026-02-07
 draft: false
 tags: ["ai"]
 ---
 
-I had fine tuned a large language model via an [adaptor](https://huggingface.co/docs/hub/adapters) on google colab 
+I had fine tuned a large language model via an [adapter](https://huggingface.co/docs/hub/adapters) on google colab 
 using a GPU that had significantly more VRAM than my GPU at home. I had intended to load it onto my CPU for inference
 to test out a few things but had some serious issues getting it working:
 
