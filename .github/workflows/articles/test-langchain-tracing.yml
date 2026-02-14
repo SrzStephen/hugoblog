@@ -1,0 +1,69 @@
+name: Test langchain_tracing
+
+on:
+  push:
+    paths:
+      - "content/posts/langchain/langchain_tracing/**"
+  pull_request:
+    paths:
+      - "content/posts/langchain/langchain_tracing/**"
+
+defaults:
+  run:
+    working-directory: content/posts/langchain/langchain_tracing
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v5
+
+      - name: Install dependencies
+        run: uv sync --dev
+
+      - name: Run tests
+        run: uv run pytest tests/
+
+  mcp:
+    strategy:
+      matrix:
+        example: [simple,advanced]
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v3
+
+      - name: Install deps
+        run: uv sync
+
+      - name: Start MCP server ${{ matrix.example }}_mcp
+        run: |
+          uv run ${{ matrix.example }}_mcp > mcp.log 2>&1 &
+          echo $! > mcp.pid
+
+      - name: Wait for MCP to be ready
+        run: |
+          for i in {1..120}; do
+            if curl -sf http://localhost:8000/health; then
+              echo "MCP ready"
+              exit 0
+            fi
+            sleep 1
+          done
+          echo "MCP failed to start"
+          cat mcp.log
+          exit 1
+
+      - name: Run client ${{ matrix.example }}_agent
+        run: uv run ${{ matrix.example }}_agent
+
+      - name: Stop MCP
+        if: always()
+        run: |
+          kill $(cat mcp.pid) || true
