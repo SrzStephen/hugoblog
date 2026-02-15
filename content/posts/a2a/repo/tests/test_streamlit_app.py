@@ -121,12 +121,15 @@ def _mock_streamlit_and_msal():
 
     mock_msal = MagicMock()
     mock_stx = MagicMock()
+    mock_auth = MagicMock()
+    mock_auth.get_id_token = MagicMock(return_value=None)
 
     saved_modules = {}
     modules_to_mock = {
         "streamlit": mock_st,
         "msal": mock_msal,
         "extra_streamlit_components": mock_stx,
+        "client.streamlit_app.auth": mock_auth,
     }
 
     for mod_name, mock_mod in modules_to_mock.items():
@@ -137,6 +140,9 @@ def _mock_streamlit_and_msal():
     for mod_name in list(sys.modules):
         if mod_name.startswith("client.streamlit_app"):
             saved_modules[mod_name] = sys.modules.pop(mod_name)
+
+    # Re-insert the auth mock after clearing (it was removed by the loop above)
+    sys.modules["client.streamlit_app.auth"] = mock_auth
 
     yield mock_st
 

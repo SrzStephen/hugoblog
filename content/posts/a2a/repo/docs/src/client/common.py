@@ -13,7 +13,7 @@ from langchain_core.callbacks import adispatch_custom_event
 from langchain_core.tools import BaseTool, tool
 from loguru import logger
 
-from mcp_server.types import CustomEventName
+from a2a_server.types import CustomEventName
 from util.settings import mysettings
 
 BASE_URL = mysettings.server.A2A_BASE_URL

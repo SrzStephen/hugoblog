@@ -56,7 +56,7 @@ if not can_call_agents():
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
-# Try to connect to the mcp_server on startup (GET is unauthenticated)
+# Try to connect to the a2a_server on startup (GET is unauthenticated)
 try:
     headers = {}
     id_token = get_id_token()
@@ -72,7 +72,7 @@ try:
 except (httpx.ConnectError, httpx.TimeoutException) as exc:
     logger.error("Cannot connect to agent server at {}: {}", BASE_URL, exc)
     st.error(
-        f"Cannot connect to agent server at {BASE_URL}. Please start the mcp_server first."
+        f"Cannot connect to agent server at {BASE_URL}. Please start the a2a_server first."
     )
     st.stop()
 except httpx.HTTPStatusError as exc:

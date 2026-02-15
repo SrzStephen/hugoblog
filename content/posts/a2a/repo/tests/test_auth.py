@@ -20,7 +20,7 @@ from starlette.routing import Route
 _TEST_CLIENT_ID = "00000000-0000-0000-0000-000000000001"
 _TEST_TENANT_ID = "00000000-0000-0000-0000-000000000002"
 
-from mcp_server.auth import (
+from a2a_server.auth import (
     AzureADAuthBackend,
     AzureADUser,
     RequireAuthMiddleware,
@@ -107,7 +107,7 @@ _duck_card = AgentCard(
 @pytest.fixture(autouse=True)
 def _mock_jwks():
     """Patch _get_jwks so tests never hit the network."""
-    with patch("mcp_server.auth._get_jwks", return_value=_JWKS):
+    with patch("a2a_server.auth._get_jwks", return_value=_JWKS):
         yield
 
 
@@ -512,7 +512,7 @@ class TestAuthEndToEnd:
 # ---------------------------------------------------------------------------
 # AuthCallContextBuilder tests
 # ---------------------------------------------------------------------------
-from mcp_server.base import AuthCallContextBuilder, StarletteUser
+from a2a_server.base import AuthCallContextBuilder, StarletteUser
 
 
 class TestAuthCallContextBuilder:

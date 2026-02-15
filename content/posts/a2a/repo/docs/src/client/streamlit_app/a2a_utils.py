@@ -18,7 +18,7 @@ from client.common import (
     make_message as _make_message,
     first_part as _first_part,
 )
-from mcp_server.types import (
+from a2a_server.types import (
     CustomEventName,
     EventType,
     StreamEvent,

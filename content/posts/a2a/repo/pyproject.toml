@@ -29,14 +29,14 @@ requires = ["uv_build>=0.10.0,<0.11.0"]
 build-backend = "uv_build"
 
 [tool.uv.build-backend]
-module-name = ["agents", "client", "mcp_server", "util"]
+module-name = ["agents", "client", "a2a_server", "util"]
 module-root = "src"
 
 
 [project.scripts]
 a2a-client = "client.streamlit_app.streamlit_runner:main"
 a2a-orchestrator = "client.orchestrator_agent.cli:main"
-a2a-server = "mcp_server.base:main"
+a2a-server = "a2a_server.base:main"
 
 [dependency-groups]
 dev = [

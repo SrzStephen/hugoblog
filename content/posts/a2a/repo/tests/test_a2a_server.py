@@ -10,10 +10,10 @@ from a2a.server.tasks.inmemory_task_store import InMemoryTaskStore
 
 from starlette.routing import Route
 
-from mcp_server.auth import AzureADAuthBackend
+from a2a_server.auth import AzureADAuthBackend
 from agents import get_wiki_agent, wikipedia_agent_card
-from mcp_server.base import agent_cards, list_agent_cards
-from mcp_server.text_executor import LangChainAgentExecutor
+from a2a_server.base import agent_cards, list_agent_cards
+from a2a_server.text_executor import LangChainAgentExecutor
 
 
 @pytest.fixture(autouse=True)

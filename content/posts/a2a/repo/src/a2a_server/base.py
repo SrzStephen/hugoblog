@@ -22,8 +22,8 @@ from agents import (
     get_duck_agent,
     text_agent_card,
 )
-from mcp_server.auth import AGENT_CALLER_ROLE, AzureADAuthBackend, RequireAuthMiddleware
-from mcp_server.text_executor import LangChainAgentExecutor, TextAgentExecutor
+from a2a_server.auth import AGENT_CALLER_ROLE, AzureADAuthBackend, RequireAuthMiddleware
+from a2a_server.text_executor import LangChainAgentExecutor, TextAgentExecutor
 from loguru import logger
 from util import get_route
 

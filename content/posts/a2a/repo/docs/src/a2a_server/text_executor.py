@@ -17,7 +17,7 @@ from a2a.types import (
     Artifact,
 )
 from loguru import logger
-from mcp_server.types import EventType, StreamEvent, ToolCallData, ToolResultData
+from a2a_server.types import EventType, StreamEvent, ToolCallData, ToolResultData
 
 
 class LangChainAgentExecutor(AgentExecutor):

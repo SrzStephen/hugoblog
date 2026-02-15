@@ -6,7 +6,7 @@ from rich.markdown import Markdown
 from rich.prompt import Prompt
 from loguru import logger
 
-from mcp_server.types import (
+from a2a_server.types import (
     CustomEventName,
     EventType,
     StreamEvent,
