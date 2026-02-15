@@ -64,7 +64,7 @@ class EntraSettings(DotEnvBase):
 
 
 class ModelSettings(DotEnvBase):
-    OPENROUTER_API_KEY: SecretStr
+    OPENROUTER_API_KEY: Optional[SecretStr] = None
     OPENROUTER_MODEL: str = "google/gemini-2.5-flash"
 
 
