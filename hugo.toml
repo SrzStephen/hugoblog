@@ -248,3 +248,8 @@ disableHugoGeneratorInject = false
 [caches]
   [caches.images]
     dir = ':cacheDir/images'
+
+[module]
+  [[module.mounts]]
+    source = "content/posts/a2a/repo/readme.md"
+    target = "content/posts/a2a/repo/index.md"
