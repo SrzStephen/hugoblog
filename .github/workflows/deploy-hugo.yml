@@ -29,6 +29,9 @@ jobs:
           hugo-version: "0.145.0"
           extended: true
 
+      - name: Fix symlinks
+        run: bash symlink_fixer.sh content
+
       - name: Build
         run: hugo --minify --environment production
 
