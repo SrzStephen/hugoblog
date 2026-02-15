@@ -4,9 +4,12 @@ date: 2026-02-07
 draft: false
 tags: ["ai", "langchain"]
 ---
-My test of trying to implement Agent to Agent (A2A) via LangChain with Entra authentication 
+My test of trying to implement Agent to Agent (A2A) via LangChain with Entra authentication.
 
-![streamlit_app.png](repo/docs/streamlit_app.png)
+# Repository link
+
+
+![streamlit_app.png](docs/streamlit_app.png)
 
 ## Structure
 
