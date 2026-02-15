@@ -19,14 +19,21 @@ def configure_logging() -> None:
 
 _model_name = mysettings.model.OPENROUTER_MODEL
 
-api_key = mysettings.model.OPENROUTER_API_KEY.get_secret_value()
+api_key = (
+    mysettings.model.OPENROUTER_API_KEY.get_secret_value()
+    if mysettings.model.OPENROUTER_API_KEY
+    else None
+)
 if not api_key:
     logger.warning("OPENROUTER_API_KEY is not set — LLM calls will fail")
 
-model = init_chat_model(
-    model=_model_name,
-    model_provider="openai",
-    base_url="https://openrouter.ai/api/v1",
-    api_key=api_key,
-)
+model = None
+if api_key:
+    model = init_chat_model(
+        model=_model_name,
+        model_provider="openai",
+        base_url="https://openrouter.ai/api/v1",
+        api_key=api_key,
+    )
+
 logger.info("LLM client initialized with model={}", _model_name)

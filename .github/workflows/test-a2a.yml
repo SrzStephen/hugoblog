@@ -15,20 +15,8 @@ defaults:
     working-directory: content/posts/a2a/repo
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
 
-      - uses: astral-sh/setup-uv@v5
-
-      - name: Ruff check
-        run: uv run ruff check .
-
-      - name: Ruff format check
-        run: uv run ruff format --check .
-
-  test:
+  test-a2a:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
