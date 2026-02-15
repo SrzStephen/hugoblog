@@ -101,7 +101,9 @@ class AzureADUser(BaseUser):
 class AzureADAuthBackend(AuthenticationBackend):
     """Starlette auth backend that validates Azure AD Bearer tokens."""
 
-    async def authenticate(self, conn: HTTPConnection) -> tuple[AuthCredentials, AzureADUser] | None:
+    async def authenticate(
+        self, conn: HTTPConnection
+    ) -> tuple[AuthCredentials, AzureADUser] | None:
         auth_header = conn.headers.get("Authorization")
         if not auth_header or not auth_header.startswith("Bearer "):
             return None
