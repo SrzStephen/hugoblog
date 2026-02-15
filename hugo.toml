@@ -250,6 +250,13 @@ disableHugoGeneratorInject = false
     dir = ':cacheDir/images'
 
 [module]
+  # Default content mount (required once you use custom mounts)
+  [[module.mounts]]
+    source = "content"
+    target = "content"
   [[module.mounts]]
     source = "content/posts/a2a/repo/readme.md"
     target = "content/posts/a2a/repo/index.md"
+  [[module.mounts]]
+    source = "content/posts/a2a/repo/docs"
+    target = "content/posts/a2a/repo/docs"

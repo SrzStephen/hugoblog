@@ -6,7 +6,7 @@ tags: ["ai", "langchain"]
 ---
 My test of trying to implement Agent to Agent (A2A) via LangChain with Entra authentication.
 
-# Repository link
+# [Repository link](https://github.com/SrzStephen/hugoblog/tree/main/content/posts/a2a/repo)
 
 
 ![streamlit_app.png](docs/streamlit_app.png)
