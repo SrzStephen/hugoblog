@@ -28,14 +28,12 @@ jobs:
           aws-region: us-east-1
 
       - name: Confirm assumed identity
+        # Don't leak account id
         run: |
-          aws sts get-caller-identity
+          aws sts get-caller-identity > /dev/null 
           echo "AWS OIDC role assumption: OK"
 
   # ── Azure ─────────────────────────────────────────────────────────────────
-  # NOTE: The federated identity credential in azure/main.tf is scoped to
-  # refs/heads/main, so this job only succeeds on pushes to the main branch.
-  # On other branches the OIDC subject won't match and Azure will reject the token.
   verify-azure:
     name: Verify Azure Federated Identity
     runs-on: ubuntu-latest
@@ -49,5 +47,5 @@ jobs:
 
       - name: Confirm active account
         run: |
-          az account show --output table
+          az account show --output table > /dev/null
           echo "Azure federated identity login: OK"
