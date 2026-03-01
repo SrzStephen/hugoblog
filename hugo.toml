@@ -260,3 +260,6 @@ disableHugoGeneratorInject = false
   [[module.mounts]]
     source = "content/posts/a2a/repo/docs"
     target = "content/posts/a2a/repo/docs"
+  [[module.mounts]]
+    source = "content/posts/oidc_aws_azure/repo/readme.md"
+    target = "content/posts/oidc_aws_azure/repo/index.md"
