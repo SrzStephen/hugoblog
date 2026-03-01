@@ -1,12 +1,12 @@
 ---
-title: "uv modules"
+title: "Python uv: Things I forget"
 date: 2026-02-14
 draft: false
-description: "How to configure uv's build backend to expose multiple Python packages from a src/ layout using the module-name setting in pyproject.toml."
+description: "Expose packages via UV, expose scripts as uv tools"
 tags: ["python"]
 categories: ["Python"]
 ---
-
+# Packaging
 I always forget how to set up [uv](https://docs.astral.sh/uv/) properly so that it allows me to do something like
 
 ```python
@@ -35,3 +35,20 @@ build-backend = "uv_build"
 module-name = ["agents", "client"]
 module-root = "src"
 ```
+# Tools
+
+To expose a python function as a [tool](https://docs.astral.sh/uv/#tools) you need both a `script` and `build backend`.
+
+There's a lot of guides that tell you to use `setuptools` or `hatch` a holdover from pre [March 2025](https://pypi.org/project/uv-build/0.6.3/)
+when UV created its own build backend - try it first.
+
+```toml
+[project.scripts]
+agent_example = "src.agents.__init__.py:main"
+
+[build-system]
+requires = ["uv_build>=0.10.7,<0.11.0"]
+build-backend = "uv_build"
+```
+
+Then you can run it with `uvx agent_example`
