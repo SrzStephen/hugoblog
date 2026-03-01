@@ -2,7 +2,9 @@
 title: "Loading quantized adapter models for CPU inference"
 date: 2026-02-07
 draft: false
+description: "How to load a quantized fine-tuned LLM adapter for CPU inference, avoiding common pitfalls with 4-bit quantization and unsloth's Triton kernels."
 tags: ["ai"]
+categories: ["AI/ML"]
 ---
 
 I had fine tuned a large language model via an [adapter](https://huggingface.co/docs/hub/adapters) on google colab 

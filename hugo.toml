@@ -1,5 +1,5 @@
 baseURL = 'https://phteven.space'
-title = 'My New Hugo Site'
+title = 'phteven.space'
 theme = 'loveit'
 ignoreFiles = ['\.venv', '\.pytest_cache', 'node_modules', '__pycache__', 'uv\.lock']
 
@@ -42,8 +42,8 @@ disableHugoGeneratorInject = false
 
 #   [services.disqus]
 #     shortname = 'your-disqus-shortname'
-#   [services.googleAnalytics]
-#     ID = 'G-MEASUREMENT_ID'
+  [services.googleAnalytics]
+    ID = 'G-GTM1M43EJ7' # GTAG isn't a secret
 
 [permalinks]
   posts = "/posts/:year/:month/:title/"
@@ -65,13 +65,13 @@ disableHugoGeneratorInject = false
 
   # Metadata mostly used in document's head
   #
-  description = "Nice theme for homepages and blogs"
-  keywords = ""
-  images = [""]
+  description = "Technical blog by Stephen Mott covering AI/ML, DevOps, and cloud infrastructure."
+  keywords = "stephen mott, ai, machine learning, devops, terraform, aws, azure, python, langchain, observability"
+  images = ["/fallback/fallback_image.png"]
 
   # Home subtitle of the index page.
   #
-  homeSubtitle = "Hello Friend NG"
+  homeSubtitle = "Stephen Mott's tech blog"
 
   # Set a background for the homepage
   # backgroundImage = "assets/images/background.jpg"

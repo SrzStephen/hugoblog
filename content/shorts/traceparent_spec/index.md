@@ -2,7 +2,9 @@
 title: "Distributed Tracing: traceparent and LangChain"
 date: 2026-02-08
 draft: false
+description: "A practical look at the W3C traceparent header spec and how to manually instrument distributed tracing across LangChain and FastMCP services using OpenTelemetry."
 tags: ["observability"]
+categories: ["DevOps"]
 ---
 
 

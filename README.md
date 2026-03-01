@@ -21,3 +21,6 @@ detect-secrets scan > .secrets.baseline
 git submodule update --remote
 git push
 ```
+## Observability
+I use New Relic for observability, `layouts/partials/newrelic.html` injects the new relic APM header
+and `layouts/partials/outbound-links.html`

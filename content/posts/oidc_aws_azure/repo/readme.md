@@ -2,7 +2,9 @@
 title: "Terraform Github AWS/Azure OIDC Authentication"
 date: 2026-03-01
 draft: false
-tags: ["terraform", "aws", 'azure']
+description: "Step-by-step guide to setting up GitHub Actions OIDC authentication with AWS and Azure using Terraform, eliminating the need for long-lived cloud credentials."
+tags: ["terraform", "aws", "azure"]
+categories: ["DevOps"]
 ---
 
 # What is OIDC Authentication and why do I want it.
@@ -158,7 +160,7 @@ sequenceDiagram
 | `azurerm_role_assignment` | Grants the service principal Azure RBAC roles at subscription scope |
 
 ### Usage
-> [!Warning]
+> [!WARNING]
 > If you're using terraform enterprise a remote executor, you may run into some problems here, 
 > set your workspace executor to local by default.
 ```bash
@@ -168,6 +170,9 @@ terraform apply
 ```
 
 ### Variables
+> [!WARNING]
+> Make sure to set a `role_assignments` otherwise you wont have access to any subscriptions.
+
 
 | Name | Type | Default | Description |
 |---|---|---|---|

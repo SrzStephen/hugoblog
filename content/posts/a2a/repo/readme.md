@@ -2,7 +2,9 @@
 title: "Langchain A2A with Entra Authentication"
 date: 2026-02-07
 draft: false
+description: "A walkthrough of implementing Agent to Agent (A2A) with LangChain and Microsoft Entra authentication, including Terraform infrastructure and a Streamlit demo."
 tags: ["ai", "langchain"]
+categories: ["AI/ML"]
 ---
 My test of trying to implement Agent to Agent (A2A) via LangChain with Entra authentication.
 
