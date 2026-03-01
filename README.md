@@ -11,3 +11,7 @@ hvm use v0.145.0
 ```
 
 
+## Detect secrets
+```
+detect-secrets scan > .secrets.baseline
+```
