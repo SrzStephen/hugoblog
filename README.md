@@ -1,17 +1,23 @@
-# Note
-
-The theme that I use has a minor incompatability with newer versions of hugo,
-while I wait for [#1008](https://github.com/dillonzq/LoveIt/pull/1008) to get merged in, stick with a known good
-version of hugo.
+# Setup
 
 
 ```zsh
 go install github.com/jmooring/hvm@latest
 hvm use v0.145.0
+uvx pre-commit
+pre-commit install
 ```
-
 
 ## Detect secrets
-```
+I use yelps [detect-secrets](https://github.com/Yelp/detect-secrets) in pre-commit to avoid committing secrets.
+
+Because lots of things look like secrets, if pre-commit complains and you've checked, rebaseline with
+```zsh
 detect-secrets scan > .secrets.baseline
+```
+
+## Update Hugo Theme
+```zsh
+git submodule update --remote
+git push
 ```
